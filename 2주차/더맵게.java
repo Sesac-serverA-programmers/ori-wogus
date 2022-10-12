@@ -3,15 +3,10 @@ import java.util.*;
 class 더맵게 {
     /**
      * 해결책 1 -> 효율성테스트 탈락
-     * 받은 스코빌 배열을 정렬하고 시작
-     * 정렬한 후 첫번째 원소(음식)가 K보다 크다면 다음에 나올 음식들도 K스코빌보다 크니 멈추고 0을 리턴
+     * 정렬이 nlogn 이고 while이 n 이므로 n^2logn으로 실패?!
      *
-     *
-     * 마지막까지 섞다가 요소가 한개남았는데 K보다 작다면 만들수 없는 경우 이므로 -1를 리턴
-     * 한번 만들고 정렬하고를 반복
-     *
-     * 해결책 2 -> 우선순위 큐 최소힙구현
-     *
+     * 해결책 2 -> 우선순위 큐 최소힙구현 -> 성공
+     *  add,poll 의 시간복잡도가 logn 이고 while이 n 이므로 nlogn으로 성공?!
      * */
     int[] scovile = {1, 2, 3, 9, 10, 12};
     int k =  7;
@@ -19,18 +14,18 @@ class 더맵게 {
 
     public int solution(int[] scoville, int K) {
         int answer = 0;
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>(); //우선순위큐를 이용하여 최소 힙 구현.
 
-        for(int i=0;i<scoville.length;i++)
+        for(int i=0;i<scoville.length;i++) //받은값들을 우선순위큐에 저장한다.
         {
             minHeap.add(scoville[i]);
         }
 
-        while(minHeap.size()>1)
+        while(minHeap.size()>1) //큐에 남은갯수가 2개이상일때까지 반복.
         {
-            if(minHeap.peek() >= K)
+            if(minHeap.peek() >= K) //맨 첫번째 음식의 스코빌이 K보다 크거나 같다면 뒤에있는건 당연히 같으니 종료
             {
-                return answer;
+                return answer; //해당 횟수 리턴
             }
 
             int first = minHeap.poll();
@@ -41,9 +36,9 @@ class 더맵게 {
 
         }
 
-        if(minHeap.poll() < K)
+        if(minHeap.poll() < K) //큐에있는 하나의 음식의 스코빌이 K보다 작다면
         {
-            return -1;
+            return -1; //-1 리턴
         }
 
 
