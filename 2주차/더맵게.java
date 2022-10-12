@@ -1,7 +1,6 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class Solution {
+class 더맵게 {
     /**
      * 해결책 1 -> 효율성테스트 탈락
      * 받은 스코빌 배열을 정렬하고 시작
@@ -87,7 +86,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution s = new Solution();
+        더맵게 s = new 더맵게();
         System.out.println(s.solution(s.scovile, s.k)) ;
 
     }
