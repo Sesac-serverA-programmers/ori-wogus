@@ -1,3 +1,5 @@
+package Week2;
+
 import java.util.*;
 
 class 더맵게 {

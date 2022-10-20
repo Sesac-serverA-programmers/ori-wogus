@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+package Week2;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
