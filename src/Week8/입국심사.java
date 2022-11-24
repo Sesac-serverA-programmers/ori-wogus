@@ -7,12 +7,12 @@ public class 입국심사 {
         long answer = 0;
         Arrays.sort(times);
 
-        int left = 1;
-        int right = n * (times[times.length - 1]);
+        long left = 1;
+        long right = (long) n * (times[times.length - 1]);
 
         while (left <= right) {
-            int mid = (left + right) / 2;
-            int sum = 0;
+            long mid = (left + right) / 2;
+            long sum = 0;
 
             for (int i = 0; i < times.length; i++) {
                 sum += mid / times[i];
